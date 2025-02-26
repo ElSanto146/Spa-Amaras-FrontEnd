@@ -1,0 +1,137 @@
+/* Ajusta el tamaño del calendario */
+.fc {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+  }
+  
+  .fc-toolbar-title {
+    color: #7122e7; /* Cambia el color del título */
+  }
+
+  .disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    color: gray;
+    text-decoration: line-through;
+    background-color: #7122e7;
+}
+
+
+
+.modal-content {
+    text-align: center;
+    
+}
+
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+    
+  }
+
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+  
+  /*.modal {
+    display: flex;
+    justify-content: center;
+    background: #7122e7;
+    border-radius: 5px;
+    max-width: 400px;
+    width: auto;
+    height: auto;
+    margin-top: auto;
+    margin-left: auto;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }*/
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .modal-body {
+    margin-top: 15px;
+  }
+
+  .modal-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+  }
+  
+  .time-slots button {
+    margin: 5px;
+  }
+
+  .demo-inline-calendar-card {
+    width: 100%;
+  }
+
+  .demo-inline-hour-card{
+    width: 95%;
+    margin-left: 2%;
+  }
+
+  
+  .text-bg {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+  } 
+
+  .hora{
+    background-color: white;
+    width: 96%;
+    margin-left: 2%;
+    border-radius: 7%;
+  }
+
+  .disabled-hour a {
+    pointer-events: none;
+    color: gray;
+    text-decoration: line-through;
+  }
+
+  .transparent{
+    background-color: transparent;
+    border: none;
+  }
+
+  .turno{
+    border: 1px solid #7122e7;
+    border-radius: 7%;
+  }
+
+  .color-text{
+    color: #31049b;
+  }
+
+  .error-box {
+    color: white;
+    background-color: red;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+  }

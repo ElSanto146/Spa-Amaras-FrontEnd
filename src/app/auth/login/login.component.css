@@ -1,0 +1,13 @@
+.ng-valid:not(form).ng-touched {
+    border-width: 5px solid #42A948;
+}
+
+.ng-invalid:not(form).ng-touched {
+    border-width: 5px solid #a94442;
+}
+
+.send:hover {
+    background-color: #fd882f;
+    transition: ease-in all 0.5s;
+    color: #fff;
+}

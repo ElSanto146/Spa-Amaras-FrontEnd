@@ -1,0 +1,21 @@
+.nav-link {
+    display: flex;
+    align-items: center; /* Centra el texto e imagen verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    text-decoration: none; /* Opcional: elimina el subrayado */
+}
+
+nombre {
+    color: white; /* Asegura que el texto sea blanco */
+    margin: 0; /* Elimina márgenes por defecto */
+    font-size: 16px; /* Ajusta el tamaño del texto */
+    line-height: 1; /* Asegura que la línea no sea demasiado alta */
+}
+
+.img-profile {
+    width: 40px; /* Ajusta el tamaño del ícono si es necesario */
+    height: 40px;
+    margin-left: 10px; /* Espacio entre el texto y la imagen */
+    object-fit: cover; /* Asegura que la imagen no se deforme */
+}
+

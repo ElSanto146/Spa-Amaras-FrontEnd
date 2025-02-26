@@ -1,0 +1,19 @@
+<div *ngIf="data.isConfirmed === true">
+  <h2 mat-dialog-title>Cancelar turno</h2>
+  <mat-dialog-content>
+    <p>¿Está seguro que desea cancelar el turno?</p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button (click)="cancelar()">NO</button>
+    <button mat-button cdkFocusInitial (click)="confirmar()">OK</button>
+  </mat-dialog-actions>
+</div>
+
+<div *ngIf="data.isConfirmed === false" >
+  <h2 mat-dialog-title>
+    Confirmar turno</h2>
+  <mat-dialog-actions>
+    <button mat-button (click)="cancelar()">NO</button>
+    <button mat-button cdkFocusInitial (click)="confirmar()">OK</button>
+  </mat-dialog-actions>
+</div>

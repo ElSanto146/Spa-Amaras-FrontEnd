@@ -1,0 +1,61 @@
+<div class="bg1">
+    <div id="contact" class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-8">
+                    <form [formGroup]="registerForm" class="main_form">
+                        <div *ngIf="RegisterError" class="text-danger">{{RegisterError}}</div>
+                        <div *ngIf="infoMessage" class="white" > {{infoMessage}} </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div *ngIf="username.invalid && (username.dirty || username.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="username.errors?.['required']">
+                                        El Email es requerido
+                                    </div>
+                                    <div *ngIf="username.errors?.['email']">
+                                        El Email debe tener un formato válido
+                                    </div>
+                                </div>
+                                <input formControlName="username" class="contactus" placeholder="Ingresá tu Email"
+                                    type="email">
+                            </div>
+                            <div class="col-sm-12">
+                                <div *ngIf="name.invalid && (name.dirty || name.touched)" class="text-danger">
+                                    <div *ngIf="name.errors?.['required']">
+                                        El nombre es requerido
+                                    </div>
+                                </div>
+                                <input formControlName="name" class="contactus" placeholder="Ingresá tu nombre"
+                                    type="text">
+                            </div>
+                            <div class="col-sm-12">
+                                <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="text-danger">
+                                    <div *ngIf="phone.errors?.['required']">
+                                        El teléfono de contacto es requerido
+                                    </div>
+                                </div>
+                                <input formControlName="phone" class="contactus" placeholder="Ingresá tu teléfono"
+                                    type="number">
+                            </div>
+                            <div class="col-sm-12">
+                                <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="password.errors?.['required']">
+                                        La contraseña es requerido
+                                    </div>
+                                </div>
+                                <input formControlName="password" class="contactus" placeholder="Ingresá una contraseña"
+                                    type="text">
+                            </div>
+                            <div class="col-sm-12">
+                                <button (click)="register()" class="send">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+
+<div id="contact" class="contact " style="background-color: #7122e7;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="titlepage">
+                    <h2>Ingre <span class="white">Sá</span></h2>
+                </div>
+               <div class="cont">
+                    <span>Para poder asignarte un turno tienes que estar registrado/a</span>
+                    <!-- <a href="#">Download</a>-->
+                </div> 
+            </div>
+            <div  class="col-md-6">  
+                <form [formGroup]="loginForm" class="main_form">
+                    <div class="row">
+                        <p class="text-danger"> {{loginError}} </p> 
+                        <div class="col-sm-12">
+                            <input formControlName="username" class="contactus" placeholder="Ingresá tu email" type="email">
+                            <div *ngIf="username.invalid && (username.dirty || username.touched)"   class="text-danger">
+                                <div *ngIf="username.errors?.['required']">
+                                    El Email es requerido
+                                </div>
+                                <div *ngIf="username.errors?.['email']">
+                                    El Email debe tener un formato válido
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <input formControlName="password" class="contactus" placeholder="Contraseña" type="password">
+                            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger" >
+                                <div *ngIf="password.errors?.['required']">
+                                    La Contraseña es requerida
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <button type="submit" (click)="login()" class="send btn btn-primary" data-toggle="modal" data-target="#loginModal" >Iniciar Sesión</button>
+                        </div>
+                    </div>
+                </form>
+                <hr>
+                <h5>¿No tienes usuario? </h5>
+                <h5><a class="send" routerLink="/register" >Registrate asiendo click aquí</a></h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Login Modal
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+   aria-hidden="true">
+   <div class="modal-dialog" role="document">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">×</span>
+            </button>
+         </div>
+         <div class="modal-body">Haz iniciado sesión</div>         
+         <div class="modal-footer">
+            <button class="btn btn-primary" type="button" data-dismiss="modal">Aceptar</button>           
+         </div>
+      </div>
+   </div>
+</div>-->

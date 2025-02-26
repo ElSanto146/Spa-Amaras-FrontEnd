@@ -1,0 +1,99 @@
+<nav *ngIf="userLoginOn && userRole === 'ROLE_USER'" style="background-color: #7122e7;"
+  class="navbar navbar-expand topbar mb-4 static-top shadow">
+  <!-- Topbar Navbar -->
+  <ul class="navbar-nav ml-auto">
+    <div class="topbar-divider d-none d-sm-block"></div>
+
+    <!-- User Information -->
+    <li class="nav-item dropdown no-arrow">
+      <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-center" id="userDropdown"
+        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="white">Hola: {{ user?.name }}</span>
+        <img class="img-profile rounded-circle" src="../assets/qt.jpg" />
+      </a>
+
+      <!-- Dropdown Menu -->
+      <ul class="dropdown-menu dropdown-menu-end shadow animated--grow-in" aria-labelledby="userDropdown">
+        <li>
+          <a class="dropdown-item" routerLink="/mis-turnos">
+            <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Mis turnos
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="#">
+            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+          </a>
+        </li>
+        <li>
+          <hr class="dropdown-divider" />
+        </li>
+        <li>
+          <button class="dropdown-item" (click)="openLogoutModal()">
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+          </button>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+<!-- Nav ADMIN -->
+<nav *ngIf="userLoginOn && userRole === 'ROLE_ADMIN'" style="background-color: #7122e7;"
+  class="navbar navbar-expand topbar mb-4 static-top shadow">
+  <!-- Topbar Navbar -->
+  <ul class="navbar-nav ml-auto">
+    <div class="topbar-divider d-none d-sm-block"></div>
+
+    <!-- User Information -->
+    <li class="nav-item dropdown no-arrow">
+      <a class="nav-link dropdown-toggle d-flex align-items-center justify-content-center" id="userDropdown"
+        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <span class="white">Hola: {{ user?.name }}</span>
+        <img class="img-profile rounded-circle" src="../assets/qt.jpg" />
+      </a>
+
+      <!-- Dropdown Menu -->
+      <ul class="dropdown-menu dropdown-menu-end shadow animated--grow-in" aria-labelledby="userDropdown">
+        <li>
+          <a class="dropdown-item" routerLink="/admin">
+            <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> Ver Turnos
+          </a>
+        </li>
+        <li>
+          <a class="dropdown-item" href="#">
+            <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Perfil
+          </a>
+        </li>
+        <li>
+          <hr class="dropdown-divider" />
+        </li>
+        <li>
+          <button class="dropdown-item" (click)="openLogoutModal()">
+            <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+          </button>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<!-- Logout Modal -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+  [ngClass]="{ show: isLogoutModalOpen }" [ngStyle]="{ display: isLogoutModalOpen ? 'block' : 'none' }">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">¿Quieres cerrar sesión?</h5>
+        <button type="button" class="btn-close" (click)="closeLogoutModal()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Selecciona "Logout" para cerrar tu sesión. De lo contrario selecciona "Cancelar".
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" (click)="closeLogoutModal()">Cancelar</button>
+        <button class="btn btn-primary" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </div>
+</div>

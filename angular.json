@@ -25,9 +25,29 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/styles.css",
+              "src/assets/css/style.css",
+              "src/assets/css/slick.css",
+              "src/assets/css/responsive.css",
+              "src/assets/css/normalize.css",
+              "src/assets/css/nice-select.css",
+              "src/assets/css/meanmenu.css",
+              "src/assets/css/jquery.mCustomScrollbar.min.css",
+              "src/assets/css/jquery-ui.css",
+              "src/assets/css/animate.min.css",
+              "src/assets/css/sb-admin-2.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+             
+              
+              "src/assets/js/plugin.js",
+              "src/assets/js/sb-admin-2.js",
+              "src/assets/js/popper.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -84,6 +104,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
             "scripts": []

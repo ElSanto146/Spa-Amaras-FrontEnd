@@ -1,0 +1,113 @@
+<div [class.disabled]="isConfirmationModalOpen" class="header_bg">
+    <div class="container-fluid">
+        <div class="row d_flex">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="text-bg">
+                    <h1>Turnos</h1>
+                    <p>Información relevante al respecto. Consejos. Promociones</p>
+                </div>
+
+                <div>
+
+                    <form class="main_form" [formGroup]="dateForm">
+
+                        <mat-card *ngIf="showDateHour" class="demo-inline-calendar-card">
+                            <mat-calendar [(selected)]="selected" [dateFilter]="myFilter" [minDate]="minDate"
+                                (selectedChange)="onDateChange($event)"> >
+                            </mat-calendar>
+                        </mat-card>
+
+                        <div *ngIf="!showDateHour && showHour" class="col container text-center hora white text-bg">
+                            <div class="col p-3 row row-cols-3 row-cols-lg-5 g-2 g-lg-3">
+
+                                <div *ngFor="let hour of hours" [ngClass]="{'disabled-hour': hour.disabled}"
+                                    class="col">
+                                    <a role="button" href="#turno" (click)="!hour.disabled && selectHour(hour.time)">
+                                        {{hour.time}}
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <br>
+                        <hr>
+
+                        <div class="row turno text-bg">
+
+                            <div *ngIf="showmessage" class="col-sm-12 ">
+                                <h6 class="color-text me-2"> {{msgBack}}</h6>
+                                <button type="submit" class="transparent mx-2"> <a class="white"
+                                        (click)="onCancel()">Nuevo turno</a> </button>
+                            </div>
+
+                            <div *ngIf="!showmessage">
+                                <div id="turno" class="col-sm-12 d-flex align-items-center ">
+
+                                    <label for="date" class="me-2">Fecha: </label>
+                                    <!-- 🚨 Mensaje de error si inputDate está vacío -->
+                                    <p *ngIf="showDateError" class="text-danger me-2">* Selecciona una
+                                        fecha</p>
+                                    <input class="transparent text-black"
+                                        [value]="selected?.toLocaleDateString('es-ES')" id="date"
+                                        formControlName="inputDate" type="datetime" />
+                                </div>
+
+                                <div class="col-sm-12 d-flex align-items-center mb-3">
+                                    <label for="hour" class="me-2">Hora: </label>
+                                    <!-- 🚨 Mensaje de error si inputHour está vacío -->
+                                    <p *ngIf="showHourError" class="text-danger me-2">* Selecciona una
+                                        hora</p>
+                                    <input class="transparent text-black" [value]="selectedHour" id="hour"
+                                        formControlName="inputHour" type="text">
+                                </div>
+
+                                <div class="col-sm-12 d-flex justify-content-between">
+                                    <button type="submit" class="transparent mx-2"> <a class="white"
+                                            (click)="onSubmit()">Confirmar turno</a> </button>
+                                    <button type="submit" class="transparent mx-2"> <a class="white"
+                                            (click)="onCancel()">Cancelar</a> </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- <div class="col-md-6">
+                        <div class="text-img">
+                            <figure><img src="../assets/qt.jpg" /></figure>
+                        </div>
+                    </div>-->
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Confirmation Modal -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+    [ngClass]="{ show: isConfirmationModalOpen }" [ngStyle]="{ display: isConfirmationModalOpen ? 'block' : 'none' }">
+    <div class="modal-dialog header_bg" role="document">
+        <div class="modal-content header_bg">
+            <div class="modal-header header_bg">
+                <h5 class="modal-title" id="exampleModalLabel">Reserva Confirmada</h5>
+
+                <button type="button" class="btn-close" (click)="closeConfirmationModal()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body header_bg">
+                <h5>Fecha: {{selected?.toLocaleDateString('es-ES')}} </h5>
+
+                <h5>Hora: {{selectedHour}} </h5>
+
+            </div>
+            <div class="modal-footer header_bg">
+                <h6>¿Desea hacer una nueva reserva?</h6>
+                <br>
+                <button class="btn btn-secondary" type="button" (click)="exit()">No</button>
+                <button class="btn btn-primary" (click)="newReservation()">Si</button>
+            </div>
+        </div>
+    </div>
+</div>
