@@ -29,7 +29,7 @@ export class NavComponent implements OnInit {
 
   isLogoutModalOpen = false; // Control del estado del modal 
 
-  constructor(private loginService: LoginServiceService, private router: Router, private registerService: RegisterService, private apiTurnos: MisTurnosService) {}
+  constructor(private loginService: LoginServiceService, private router: Router, private registerService: RegisterService, private apiTurnos: MisTurnosService) { }
 
   // Abre el modal de logout
   openLogoutModal(): void {
@@ -83,6 +83,13 @@ export class NavComponent implements OnInit {
     this.loginService.userRole$.subscribe({
       next: (role) => {
         this.userRole = this.loginService.currentUserDate.value?.roles[0];
+        console.log('userRole', this.userRole);
+      }
+    });
+
+    this.registerService.userRole$.subscribe({
+      next: (role) => {
+        this.userRole = this.registerService.currentUserDate.value?.roles[0];
         console.log('userRole', this.userRole);
       }
     });

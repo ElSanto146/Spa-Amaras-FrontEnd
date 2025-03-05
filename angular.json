@@ -36,14 +36,12 @@
               "src/assets/css/jquery.mCustomScrollbar.min.css",
               "src/assets/css/jquery-ui.css",
               "src/assets/css/animate.min.css",
-              "src/assets/css/sb-admin-2.css",
+              "src/assets/css/sb-admin-2.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-             
-              
               "src/assets/js/plugin.js",
               "src/assets/js/sb-admin-2.js",
               "src/assets/js/popper.min.js"
@@ -54,8 +52,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "1.2mb",
+                  "maximumError": "2.3mb"
                 },
                 {
                   "type": "anyComponentStyle",

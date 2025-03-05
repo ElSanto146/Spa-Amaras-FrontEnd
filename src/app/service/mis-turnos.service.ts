@@ -5,6 +5,7 @@ import { ITurno } from '../models/TurnoModel';
 import { IUserTurno } from '../models/IUserTurnoModel';
 import { ITurnoUserModel } from '../models/ITurnoUserModel';
 import { IUserDetail } from '../models/UserDetail';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class MisTurnosService {
   turnos$ = this.turnosSubject.asObservable();
 
   private _http = inject(HttpClient);
-  private urlBase: string = 'http://localhost:8080/api/v1/user';
+  private urlBase: string = environment.apiUrlProd + "api/v1/user";
 
   cantidadTurnos: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
@@ -67,7 +68,7 @@ export class MisTurnosService {
 
     return this._http.get<IUserTurno>(`${this.urlBase}/${id}`, { headers }).pipe(
       tap(response => this.cantidadTurnos.next(response.turns.length), // Actualiza la cantidad de turnos
-      turnos => this.turnosSubject.next(turnos) ),
+        turnos => this.turnosSubject.next(turnos)),
       map(response => response.turns || []) // Extrae solo los turnos del objeto JSON
     );
 

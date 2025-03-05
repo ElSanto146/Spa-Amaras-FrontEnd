@@ -9,15 +9,15 @@ import { LoginServiceService } from '../../service/login.service.service';
   imports: [CommonModule, RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
-}) 
+})
 export class HomeComponent {
 
-  constructor(private loginService: LoginServiceService, private router: Router){}
+  constructor(private loginService: LoginServiceService, private router: Router) { }
 
-  check(): void{
-    if(this.loginService.currentUserLoginOn.value){
+  check(): void {
+    if (this.loginService.currentUserLoginOn.value) {
       this.router.navigateByUrl('/appointment');
-    }else{
+    } else {
       this.router.navigateByUrl('/login');
     }
   }
